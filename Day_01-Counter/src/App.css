@@ -1,0 +1,65 @@
+.main-page {
+    padding-top: 10% ;
+  background-color: silver;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.content {
+  padding: 1rem;
+  border: 2px solid black;
+  width: 90%;
+  max-width: 300px;
+  height: auto;
+  min-height: 400px;
+  background-color: antiquewhite;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+.content > h1 {
+  color: brown;
+  font-size: clamp(3rem, 10vw, 6rem);
+ 
+  border-bottom: 4px solid black;
+}
+
+.content > button {
+  background-color: rgb(144, 151, 236);
+  height: clamp(30px,45px,55px);
+  width: clamp(60px,80px,90px);
+  border: 2px solid black;
+}
+
+.content > button:hover {
+  background-color: aquamarine;
+  transform: scale(1.2);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.reset{
+    height: clamp(30px,45px,50px);
+    width: clamp(60px,70px,80px);
+    background-color: rgb(233, 132, 132);
+    color: black;
+
+}
+.reset:hover{
+    transform: scale(1.1);
+    transition: all 0.3 ease;
+    cursor :pointer;
+    background-color: red;
+}
