@@ -1,0 +1,69 @@
+body{
+  padding: 0%;
+  margin: 0%;
+  
+}
+.main{
+  height: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: beige;
+}
+.searchbar{
+  background-color: beige;
+  height : clamp(2rem,20vh,6rem);
+  width: auto;
+  padding:1rem;
+  padding-top: 3%;
+  padding-bottom: clamp(10px,20vh,50px);
+}
+.inp{
+  background-color: white;
+  height: clamp(25px,10vh,35px);
+  width: 50%;
+  font-size: larger;
+  padding-left: 1%;
+  margin-right: 10%;
+}
+.btn{
+  height:clamp(25px,10vh,40px);
+  width: 10%;
+  border-radius: 8px;
+  background-color: rgb(226, 178, 105);
+}
+.btn:hover{
+  transform: scale(1.2);
+  transition: all 1.s ease;
+  background-color: rgb(197, 130, 30);;
+}
+.content {
+  border-top: 3px solid black;
+  padding: 2%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* space between cards */
+  justify-content: left; /* center align cards */
+}
+
+.cards {
+  flex: 0 1 300px; /* fixed width but responsive */
+  height: auto;
+  background-color: rgb(201, 130, 130);
+  margin: 0;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 8px;
+
+}
+
+.cards img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+.cards >h1{
+  padding: 2%;    
+  padding-left:4%; 
+}
