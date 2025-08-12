@@ -1,0 +1,45 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar {
+  height: clamp(50px, 10vh, 80px);
+  background-color: rgb(121, 121, 212);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.navbar h1 {
+  margin: 0;
+}
+
+.content {
+  min-height: 100vh;
+  width: 100%;
+  background-color: rgb(192, 218, 240);
+  padding: 20px;
+}
+
+.heading h1 {
+  margin: 10px 0;
+}
+
+input {
+  padding: 10px;
+  margin-right: 10px;
+}
+
+button {
+  padding: 10px 15px;
+  margin-right: 10px;
+  cursor: pointer;
+}
