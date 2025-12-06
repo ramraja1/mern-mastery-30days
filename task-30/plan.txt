@@ -1,0 +1,226 @@
+🔹 Level 1 – Node + Express Basics (Tasks 1–6)
+
+1. Hello API
+Create an Express server with one route: GET / → returns { message: "API is running" }.
+
+Folder: server/
+
+Use nodemon.
+
+2. Routes & Params
+Add routes:
+
+GET /api/hello → "Hello Pawan"
+
+GET /api/hello/:name → "Hello <name>" from URL param.
+
+3. Query Params
+Route: GET /api/sum?a=10&b=20 → responds with { result: 30 }.
+
+Parse query params
+
+Handle missing params with an error message.
+
+4. Basic Middleware
+Create a logger middleware that logs: method + URL + time for each request.
+Use app.use(logger) on all routes.
+
+5. Error Handling Middleware
+Create a route GET /api/crash that throws an error intentionally.
+Add a global error handler middleware → returns { message: "Something went wrong" }.
+
+6. Separate Routes File
+Move all /api/* routes into a separate file like routes/api.js.
+Use app.use("/api", apiRouter).
+
+🔹 Level 2 – MongoDB + Mongoose (Tasks 7–12)
+
+7. Connect to MongoDB
+Create a new project notes-api.
+
+Connect to local Mongo or Mongo Atlas with Mongoose
+
+Log “DB connected” on success.
+
+8. Note Model
+Create a Note schema with fields: title, content, createdAt.
+
+createdAt should auto default to Date.now.
+
+9. CRUD – Create & Read
+Routes:
+
+POST /api/notes → create note
+
+GET /api/notes → get all notes
+Validate: title and content required.
+
+10. CRUD – Update & Delete
+Routes:
+
+PUT /api/notes/:id → update note
+
+DELETE /api/notes/:id → delete note
+Handle: invalid id, not found.
+
+11. Filter Notes
+Add query: GET /api/notes?search=xyz → return notes where title contains xyz (case-insensitive).
+Use $regex.
+
+12. Pagination
+Add pagination params: page and limit.
+Return notes, total, page, pages.
+
+🔹 Level 3 – Auth + Users (Tasks 13–18)
+
+13. User Model
+Create User schema: name, email (unique), password.
+Add validation (required).
+
+14. Signup Route
+POST /api/auth/signup →
+
+Check if email already exists
+
+Hash password with bcrypt
+
+Save user
+
+Return basic user data (not password).
+
+15. Login Route (JWT)
+POST /api/auth/login →
+
+Check email & password
+
+If valid → return JWT token
+
+If invalid → 401 with message.
+
+16. Auth Middleware
+Create authMiddleware that:
+
+Reads Authorization: Bearer <token>
+
+Verifies token
+
+Sets req.user with user id/email.
+
+17. Protected Notes Routes
+Modify notes API so:
+
+Each note belongs to a user (userId)
+
+Only logged-in user can create/read/update/delete their own notes.
+
+18. Current User Endpoint
+Route: GET /api/me (protected) → returns data of logged-in user.
+
+🔹 Level 4 – React Frontend (Tasks 19–23)
+
+19. Basic React App + Pages
+Create React app (Vite or CRA) with pages: Login, Signup, Dashboard.
+Use React Router for navigation.
+
+20. Signup Form (Frontend)
+On /signup page:
+
+Form fields: name, email, password
+
+On submit → call backend signup API
+
+Show success/error message.
+
+21. Login + Store Token
+On /login page:
+
+Call login API
+
+If success → save token in localStorage
+
+Redirect to /dashboard.
+
+22. Notes Dashboard
+On /dashboard:
+
+Fetch notes from backend using token in header
+
+Show list of notes
+
+Provide form to add new note
+
+Button to delete note.
+
+23. Protected Frontend Routes
+Create a ProtectedRoute component that:
+
+Checks if token exists
+
+If not → redirect to /login.
+
+🔹 Level 5 – Polish + Real App Feel (Tasks 24–30)
+
+24. Loading & Error States
+Add loading spinners and error text for:
+
+Login
+
+Signup
+
+Notes fetching
+No silent failures.
+
+25. Basic Tailwind UI Cleanup
+Add Tailwind (or any CSS) to:
+
+Center the main layout
+
+Make forms clean
+
+Make buttons consistent (primary style).
+
+26. Logout Feature
+Add Logout button in navbar →
+
+Removes token
+
+Redirects to /login.
+
+27. Environment Config
+Use .env for:
+
+Backend: MONGO_URI, JWT_SECRET, PORT
+
+Frontend: VITE_API_BASE_URL (or similar).
+No hard-coded URLs/tokens in code.
+
+28. Deployment – Backend
+Deploy backend to Render/Railway:
+
+Fix CORS
+
+Use correct Mongo URI
+
+Test all endpoints with Postman.
+
+29. Deployment – Frontend
+Deploy frontend to Vercel/Netlify:
+
+Set correct API base URL
+
+Verify signup/login/notes working online.
+
+30. Mini Case Study Writeup
+Write a short “case study” (for portfolio/LinkedIn):
+
+What your app does
+
+Tech stack
+
+Features
+
+Challenges you faced
+
+What you learned
+
+This makes you sound mature in interviews.
