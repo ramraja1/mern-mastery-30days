@@ -1,0 +1,41 @@
+🔹 Level 1 – Node + Express Basics (Tasks 1–6)
+
+1. Hello API
+Create an Express server with one route: GET / → returns { message: "API is running" }.
+
+Folder: server/
+
+Use nodemon.🔹 Level 1 – Node + Express Basics (Tasks 1–6)
+
+1. Hello API
+Create an Express server with one route: GET / → returns { message: "API is running" }.
+
+Folder: server/
+
+Use nodemon.
+
+2. Routes & Params
+Add routes:
+
+GET /api/hello → "Hello Pawan"
+
+GET /api/hello/:name → "Hello <name>" from URL param.
+
+3. Query Params
+Route: GET /api/sum?a=10&b=20 → responds with { result: 30 }.
+
+Parse query params
+
+Handle missing params with an error message.
+
+4. Basic Middleware
+Create a logger middleware that logs: method + URL + time for each request.
+Use app.use(logger) on all routes.
+
+5. Error Handling Middleware
+Create a route GET /api/crash that throws an error intentionally.
+Add a global error handler middleware → returns { message: "Something went wrong" }.
+
+6. Separate Routes File
+Move all /api/* routes into a separate file like routes/api.js.
+Use app.use("/api", apiRouter).

@@ -1,0 +1,38 @@
+
+🔹 Level 2 – MongoDB + Mongoose (Tasks 7–12)
+
+7. Connect to MongoDB
+Create a new project notes-api.
+
+Connect to local Mongo or Mongo Atlas with Mongoose
+
+Log “DB connected” on success.
+
+8. Note Model
+Create a Note schema with fields: title, content, createdAt.
+
+createdAt should auto default to Date.now.
+
+9. CRUD – Create & Read
+Routes:
+
+POST /api/notes → create note
+
+GET /api/notes → get all notes
+Validate: title and content required.
+
+10. CRUD – Update & Delete
+Routes:
+
+PUT /api/notes/:id → update note
+
+DELETE /api/notes/:id → delete note
+Handle: invalid id, not found.
+
+11. Filter Notes
+Add query: GET /api/notes?search=xyz → return notes where title contains xyz (case-insensitive).
+Use $regex.
+
+12. Pagination
+Add pagination params: page and limit.
+Return notes, total, page, pages.
