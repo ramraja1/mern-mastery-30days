@@ -1,6 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import note from './model/note.js'
+import Note from './model/note.js';
 
 const app= express();
 
@@ -65,7 +66,7 @@ app.put("/api/notes/:id",async (req,res)=>{
     const updateNotes=await note.findByIdAndUpdate(id,{Title:"Pawan",Content:"xxx"});
     if(!updateNotes) return res.status(404).send("Not Found...");
     res.status(200).json(updateNotes);
-
+    
 })
 
 app.delete("/api/notes/:id",async (req,res)=>{
@@ -103,6 +104,31 @@ if(search){
 // Add pagination params: page and limit.
 // Return notes, total, page, pages.
 
+
+app.get("/api/pagination",async (req,res)=>{
+     const page=Math.max(1, parseInt(req.query.page));
+     const limit=Math.max(1,parseInt(req.query.limit));
+        const {search}=req.query;
+
+     const filter={};
+        if(search)
+     filter.Title={$regex:search,$options:'i'};
+ 
+    const total=await note.countDocuments(filter);
+    const pages=Math.ceil(total/limit);
+
+    const notes=await note.find(filter).skip((page-1)*limit).limit(limit);
+    res.json({
+        notes,
+        total,
+        page,
+        pages
+    });
+
+
+     
+
+})
 
 app.get('/',(req,res)=>{
     res.send("hii , I am alive...");
