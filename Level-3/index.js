@@ -1,14 +1,13 @@
 import express from 'express';
 import mongoose from 'mongoose';
+import {authMiddleware} from './middleware/authMiddleware.js'
 
 import userRoute from "./route/userRoute.js"
 const app=express();
 
 app.use(express.json());
 
-app.get("/",(req,res)=>{
-    res.send("Happy Coding....");
-})
+
 
 // 13. User Model
 // Create User schema: name, email (unique), password.
@@ -16,6 +15,18 @@ app.get("/",(req,res)=>{
 
 
 app.use("/api/auth",userRoute);
+
+// 16. Auth Middleware
+// Create authMiddleware that:
+
+// Reads Authorization: Bearer <token>
+
+// Verifies token
+
+// Sets req.user with user id/email.
+app.get("/",authMiddleware,(req,res)=>{
+    res.send("Happy Coding....");
+})
 
 app.listen('5000',()=>{
         console.log("Server Connected...");

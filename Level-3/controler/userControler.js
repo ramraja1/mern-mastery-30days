@@ -64,7 +64,7 @@ export const login=async(req,res)=>{
     if(!isMatch)return res.status(401).json({message:"Invalid email or password"});
     const token = jwt.sign(
         {id:userData._id},
-        "PawanSeceret",
+        "PawanSecret",
         {expiresIn:"1h"});
 
     res.json({
