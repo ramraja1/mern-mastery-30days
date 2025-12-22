@@ -1,0 +1,45 @@
+
+🔹 Level 3 – Auth + Users (Tasks 13–18)
+
+13. User Model
+Create User schema: name, email (unique), password.
+Add validation (required).
+
+14. Signup Route
+POST /api/auth/signup →
+
+Check if email already exists
+
+Hash password with bcrypt
+
+Save user
+
+Return basic user data (not password).
+
+15. Login Route (JWT)
+POST /api/auth/login →
+
+Check email & password
+
+If valid → return JWT token
+
+If invalid → 401 with message.
+
+16. Auth Middleware
+Create authMiddleware that:
+
+Reads Authorization: Bearer <token>
+
+Verifies token
+
+Sets req.user with user id/email.
+
+17. Protected Notes Routes
+Modify notes API so:
+
+Each note belongs to a user (userId)
+
+Only logged-in user can create/read/update/delete their own notes.
+
+18. Current User Endpoint
+Route: GET /api/me (protected) → returns data of logged-in user.
