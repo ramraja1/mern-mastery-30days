@@ -1,6 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import {authMiddleware} from './middleware/authMiddleware.js'
+import noteRoutes from './route/notesRoutes.js'
 
 import userRoute from "./route/userRoute.js"
 const app=express();
@@ -27,6 +28,15 @@ app.use("/api/auth",userRoute);
 app.get("/",authMiddleware,(req,res)=>{
     res.send("Happy Coding....");
 })
+
+// 17. Protected Notes Routes
+// Modify notes API so:
+
+// Each note belongs to a user (userId)
+
+// Only logged-in user can create/read/update/delete their own notes.
+
+app.use("/api/notes",authMiddleware,noteRoutes);
 
 app.listen('5000',()=>{
         console.log("Server Connected...");
