@@ -43,3 +43,6 @@ Only logged-in user can create/read/update/delete their own notes.
 
 18. Current User Endpoint
 Route: GET /api/me (protected) → returns data of logged-in user.
+
+
+all task done here 
